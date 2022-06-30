@@ -1,0 +1,151 @@
+@import './mixin';
+@import './varibles';
+
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,regular,500,600,700,800,900);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+.container{
+    max-width: 1300px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+
+.products-section{
+    width: 100%;
+
+    &__title{
+        width: 100%;
+        text-align: center;
+        
+        .hr-line{
+            width: 80px;
+            height: 3px;
+            margin: 0 auto;
+            margin-bottom: 8px;
+            background: #AB0433;
+        }
+
+    }
+    &__text{
+        color: $black;
+        margin-bottom: 35px;
+        @include font(normal,700,40,24,120%)
+    }
+
+    &-cards{
+        width: 100%;
+        margin-bottom: 50px;
+        @include flex(center,space-between);
+
+        @media screen and(max-width: $tablet-width) {
+            flex-wrap: wrap;
+        }
+
+        .product-card{
+            width: 32%;
+            gap: 30px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            transition: all .3s ease;
+            box-shadow: 1px 4px 9px -4px rgba(34, 60, 80, 0.35);
+
+            &:hover{
+                transform: translateY(-10px);
+                box-shadow: 3px 4px 9px -4px rgba(34, 60, 80, 1);
+            }
+
+            @media screen and(max-width: $tablet-width) {
+                width: 48%;
+            }
+            @media screen and(max-width:767px) {
+                width: 100%;
+            }
+
+            &__image{
+                width: 100%;
+                background: radial-gradient(98.56% 98.92% at 1.22% 1.08%, #FBFBFB 0%, #D3D3D3 100%);
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    display: inherit;
+                    object-fit: cover;
+                }
+            }
+
+            &__content{
+                width: 100%;
+                padding: 16px 24px 24px 24px;
+            }
+
+            &__title{
+                width: 100%;
+                margin-bottom: 6px;
+                @include flex(center,space-between);
+
+                h1{
+                    color: $black;
+                    @include font(normal,600,18,12,130%);
+                }
+            }
+
+            &__desc{
+                width: 100%;
+
+                &ription{
+                    color: #767676;
+                    margin-bottom: 40px;
+                    @include font(normal,500,16,12,130%);
+                }
+            }
+
+            &__aviable{
+                width: 120px;
+                padding: 2px 6px;
+                border-radius: 20px;
+                border: 1px solid #EAEAEA;
+
+                .product-card__text{
+                    color: $black;
+                    @include font(normal,700,12,10,150%);
+                }
+            }
+        }
+    }
+}
